@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="css.css">
-
-  <!-- JS -->
-  <script src="index.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css.css" />
 
   <title>Matemática básica</title>
 </head>
+
 <body>
   <div id="inputsDiv">
-    <input type="text" id="operationsInput">
+    <form id="inputForm">
+      <input type="text" name="numberA" id="numberAInput" class="numberInput" />
+      <select name="operator" id="operatorInput">
+        <option value="add" disabled>+</option>
+        <option value="subtract" disabled>-</option>
+        <option value="multiply" disabled>*</option>
+        <option value="divide" disabled>/</option>
+      </select>
+      <input type="text" name="numberB" id="numberBInput" class="numberInput" />
+      <button type="button" id="startButton">Calcular</button>
+    </form>
   </div>
+
+  <!-- JS -->
+  <script src="Operators.js"></script>
+  <script src="Operation.js"></script>
+  <script src="index.js"></script>
 </body>
+
 </html>

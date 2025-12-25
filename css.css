@@ -3,6 +3,22 @@ body {
   justify-content: center;
 }
 
-.inputsDiv {
+#inputsDiv {
   margin-top: 200px;
+}
+
+#inputsDiv input,
+#inputsDiv button,
+#inputsDiv select {
+  font-size: large;
+  text-align: center;
+}
+
+.numberInput {
+  width: 5em;
+}
+
+.operatorInput {
+  width: 1em;
+  text-align: center;
 }

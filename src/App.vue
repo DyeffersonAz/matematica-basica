@@ -1,21 +1,49 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
+import Operators from "./Operators";
+import Operation from "./Operation";
 
-const result = ref('')
+const result = ref("");
+const numA = ref();
+const numB = ref();
+const operator = ref("+");
+
+function startCalculation() {
+  // Transforming operator into symbol
+  const operatorSymbol = Operators.fromChar(operator.value);
+
+  //Creating operation
+  const operation = new Operation(numA.value, operatorSymbol, numB.value);
+  result.value = operation;
+}
 </script>
 
 <template>
   <div id="hero">
     <h1>Matemática básica</h1>
-    <form>
-      <input name="numA" type="number" class="numberInput" />
-      <select name="operator" id="operatorInput">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-        <option value="/">/</option>
+    <form @submit.prevent="startCalculation">
+      <input
+        name="numA"
+        class="numberInput"
+        v-model="numA"
+        @keyup.enter="$event.target.form.requestSubmit()"
+        pattern="^\d+([.,]\d+)?$"
+        required
+      />
+      <select name="operator" id="operatorInput" v-model="operator" required>
+        <option value="+" selected="selected">+</option>
+        <option value="-" disabled="disabled">-</option>
+        <option value="*" disabled="disabled">*</option>
+        <option value="/" disabled="disabled">/</option>
       </select>
-      <input name="numB" type="number" class="numberInput" />
+      <input
+        name="numB"
+        class="numberInput"
+        v-model="numB"
+        @keyup.enter="$event.target.form.requestSubmit()"
+        pattern="^\d+([.,]\d+)?$"
+        required
+      />
       <button type="submit" id="calcButton">Calcular!</button>
     </form>
 
@@ -24,24 +52,10 @@ const result = ref('')
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 * {
-  font-family: 'Inter', sans-serif;
-}
-
-/* Removes arrows in Chrome, Safari, Edge, and Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Removes arrows in Firefox */
-input[type='number'] {
-  appearance: textfield;
-  -moz-appearance: textfield;
-  text-align: center; /* This will now be perfectly centered */
+  font-family: "Inter", sans-serif;
 }
 
 #hero {

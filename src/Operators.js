@@ -35,3 +35,5 @@ const Operators = (() => {
     toChar: (sym) => TO_CHAR.get(sym),
   });
 })();
+
+export default Operators;

@@ -9,9 +9,4 @@ const props = defineProps({
 </template>
 
 <style lang="css" scoped>
-div {
-  font-size: 5em;
-  font-weight: bolder;
-  width: 50%;
-}
 </style>

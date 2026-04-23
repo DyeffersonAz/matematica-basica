@@ -14,6 +14,7 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "@codedgar/puppertino": "github:codedgar/Puppertino",
     "vue": "^3.5.26",
     "vue-router": "^4.6.4"
   },
